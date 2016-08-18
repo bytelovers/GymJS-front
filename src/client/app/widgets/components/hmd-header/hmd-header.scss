@@ -1,0 +1,463 @@
+
+
+/*==========================================================================================================*/
+/* HEADER     ||---------------------------- */
+/*==========================================================================================================*/
+
+/*------------------------------------------------------------------*/
+/* Header Style */
+/*------------------------------------------------------------------*/
+.hmd-header {
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    z-index: 1000;
+    color: #fff;
+    width: 100%;
+    height: 85px;
+    transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+    -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+    -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+    -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+
+        &.header-prepare, &.header-light.header-prepare {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        &.header-dark.header-prepare {
+            background-color: rgba(34, 34, 34, 0.95);
+            border-bottom: 0px none;
+        }
+
+        &.header-fixed {
+            display: block;
+            margin-top: 0 !important;
+            position: fixed;
+            height: 58px;
+        }
+
+    .header-inner {
+        padding-left: 30px;
+        padding-right: 30px;
+        position: relative;
+    }
+
+    .header-fixed .logo a {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+    }
+
+    .header-fixed .nav-menu ul.nav-menu-inner > li > a {
+        padding-top: 24px;
+        padding-bottom: 23px;
+    }
+
+    /*header Logo style*/
+    &.header-prepare .logo a img.logo-light,
+    .hmd-header .logo a img.logo-dark {
+        opacity: 0;
+    }
+
+    .hmd-header .logo a img.logo-light,
+    &.header-prepare .logo a img.logo-dark,
+    &.header-light .logo a img.logo-dark {
+        opacity: 1;
+    }
+
+    &.header-dark.header-prepare .logo a img.logo-dark,
+    &.header-dark .logo a img.logo-dark {
+        opacity: 0;
+    }
+
+    &.header-dark.header-prepare .logo a img.logo-light,
+    &.header-dark .logo a img.logo-light {
+        opacity: 1;
+    }
+
+    @media all and (min-width: 1025px) {
+
+        /*header nav style*/
+        &.header-prepare .nav-menu ul.nav-menu-inner > li > a {
+            color: rgba(34,34,34,0.60);
+        }
+
+            &.header-prepare .nav-menu ul.nav-menu-inner > li:hover > a,
+            &.header-prepare .nav-menu ul.nav-menu-inner > li > a:hover {
+                color: rgba(34,34,34,1);
+            }
+
+        &.header-dark.header-prepare .nav-menu ul.nav-menu-inner > li > a {
+            color: rgba(255,255,255,0.75);
+        }
+
+            &.header-dark.header-prepare .nav-menu ul.nav-menu-inner > li:hover > a,
+            &.header-dark.header-prepare .nav-menu ul.nav-menu-inner > li > a:hover {
+                color: rgba(255,255,255,1);
+            }
+    }
+
+    @media all and (max-width: 1024px) {
+        .header {
+            height: 58px;
+        }
+
+        .header-inner {
+            padding-left: 30px;
+            padding-right: 30px;
+            position: relative;
+            display: table;
+            width: 100%;
+        }
+
+        .hmd-header .logo a {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            width: 100px;
+            transition: all 0.3s ease 0s;
+            -o-transition: all 0.3s ease 0s;
+            -moz-transition: all 0.3s ease 0s;
+            -webkit-transition: all 0.3s ease 0s;
+        }
+    }
+
+
+    /*------------------------------------------------------------------*/
+    /* Logo Style */
+    /*------------------------------------------------------------------*/
+    .logo {
+        float: left;
+        text-align: left;
+        display: inline-block;
+    }
+
+        .logo a {
+            width: 100px;
+            display: block;
+            margin-top: 29px;
+            margin-bottom: 28px;
+            transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+            -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+            -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+            -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+            position: relative;
+        }
+
+            .logo a img {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+                -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+                -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+                -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+            }
+
+
+
+    /*------------------------------------------------------------------*/
+    /* Navigation Menu Style */
+    /*------------------------------------------------------------------*/
+    .nav-menu {
+        position: static;
+        float: right;
+        display: block;
+    }
+
+        .nav-menu.active {
+            display: block;
+        }
+
+        .nav-menu ul.nav-menu-inner {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+            .nav-menu ul.nav-menu-inner li {
+                display: inline-block;
+                list-style: none;
+                text-align: left;
+            }
+
+            .nav-menu ul.nav-menu-inner > li > a {
+                color: rgba(255,255,255,0.60);
+            }
+
+    .header-light .nav-menu ul.nav-menu-inner > li > a {
+        color: rgba(34, 34, 34, 0.6);
+    }
+
+
+
+
+    .nav-menu ul.nav-menu-inner li a {
+        font-family: inherit;
+        display: block;
+        font-size: 11px;
+        line-height: 1;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+    }
+
+    .nav-menu ul.nav-menu-inner > li > a {
+        padding: 37px 15px;
+    }
+
+    .nav-menu ul.nav-menu-inner > li.active a,
+    .nav-menu ul.nav-menu-inner > li a.active,
+    .nav-menu ul.nav-menu-inner > li:hover > a,
+    .nav-menu ul.nav-menu-inner > li > a:hover,
+    &.header-dark .nav-menu ul.nav-menu-inner > li.active a,
+    &.header-dark .nav-menu ul.nav-menu-inner > li a.active,
+    &.header-dark .nav-menu ul.nav-menu-inner > li:hover > a,
+    &.header-dark .nav-menu ul.nav-menu-inner > li > a:hover,
+    &.header-dark.header-prepare .nav-menu ul.nav-menu-inner li a.current,
+    &.header-dark.header-prepare .nav-menu ul.nav-menu-inner li.current a {
+        color: #fff;
+    }
+
+    &.header-light .nav-menu ul.nav-menu-inner > li:hover > a,
+    &.header-light .nav-menu ul.nav-menu-inner > li > a:hover,
+    &.header-prepare .nav-menu ul.nav-menu-inner li a.current,
+    &.header-prepare .nav-menu ul.nav-menu-inner li.current a {
+        color: #222;
+    }
+
+    /* Mobile bar icon */
+    .nav-mobile.nav-bar-icon {
+        display: none;
+    }
+
+    .nav-bar-icon {
+        display: inline-block;
+        float: right;
+        position: relative;
+        height: 16px;
+        width: 20px;
+        margin-top: 34px;
+        margin-bottom: 35px;
+        margin-left: 15px;
+        transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
+        cursor: pointer;
+    }
+
+    .header-fixed .nav-bar-icon {
+        margin-top: 21px;
+        margin-bottom: 21px;
+    }
+
+    .nav-bar-icon a {
+        color: #fff;
+        display: block;
+        font-size: 17px;
+        padding: 19px 0;
+    }
+
+        .nav-bar-icon.active a, .nav-bar-icon a.active,
+        .nav-bar-icon:hover a, .nav-bar-icon a:hover {
+            color: #33ccff;
+        }
+
+    .nav-bar-icon > span {
+        position: absolute;
+        top: 50%;
+        display: block;
+        width: 20px;
+        height: 2px;
+        margin-top: -1px;
+        background-color: #222;
+        -webkit-transition: -webkit-transform 0.3s, background 0.25s ease;
+        -webkit-transition: background 0.25s ease, -webkit-transform 0.3s;
+        transition: background 0.25s ease, -webkit-transform 0.3s;
+        transition: transform 0.3s, background 0.25s ease;
+        transition: transform 0.3s, background 0.25s ease, -webkit-transform 0.3s;
+    }
+
+        .nav-bar-icon > span:before,
+        .nav-bar-icon > span:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+            -webkit-transition: -webkit-transform 0.3s, background 0.25s ease;
+            -webkit-transition: background 0.25s ease, -webkit-transform 0.3s;
+            transition: background 0.25s ease, -webkit-transform 0.3s;
+            transition: transform 0.3s, background 0.25s ease;
+            transition: transform 0.3s, background 0.25s ease, -webkit-transform 0.3s;
+        }
+
+    header .nav-bar-icon > span,
+    header .nav-bar-icon > span:before,
+    header .nav-bar-icon > span::after,
+    header.header-dark .nav-bar-icon > span,
+    header.header-dark .nav-bar-icon > span:before,
+    header.header-dark .nav-bar-icon > span::after,
+    header.header-dark.header-prepare .nav-bar-icon > span,
+    header.header-dark.header-prepare .nav-bar-icon > span:before,
+    header.header-dark.header-prepare .nav-bar-icon > span::after {
+        background-color: #fff;
+    }
+
+    header.header-light .nav-bar-icon > span,
+    header.header-light .nav-bar-icon > span:before,
+    header.header-light .nav-bar-icon > span::after,
+    header.header-prepare .nav-bar-icon > span,
+    header.header-prepare .nav-bar-icon > span:before,
+    header.header-prepare .nav-bar-icon > span::after {
+        background-color: #222;
+    }
+
+
+    .nav-bar-icon > span:before {
+        -webkit-transform: translateY(-7px);
+        transform: translateY(-7px);
+        -o-transform: translateY(-7px);
+        -ms-transform: translateY(-7px);
+        -moz-transform: translateY(-7px);
+    }
+
+    .nav-bar-icon > span:after {
+        -webkit-transform: translateY(7px);
+        transform: translateY(7px);
+        -o-transform: translateY(7px);
+        -ms-transform: translateY(7px);
+        -moz-transform: translateY(7px);
+    }
+
+    .nav-bar-icon.active {
+        transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+        .nav-bar-icon.active > span:before {
+            transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+        }
+
+        .nav-bar-icon.active > span:after {
+            transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+        }
+
+    /* Dropdown-menu */
+    .nav-menu > ul li {
+        position: relative;
+    }
+
+    .sub-dropdown.dropdown {
+        top: 100%;
+        left: 0;
+    }
+
+    .sub-dropdown {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        display: none;
+        background: rgba(34,34,34,0.90);
+        padding: 0;
+        width: 200px;
+    }
+
+        .sub-dropdown li {
+            width: 100%;
+        }
+
+        .sub-dropdown > li > a {
+            padding: 13px 15px;
+            display: block;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .sub-dropdown > li:hover > a {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+
+        .sub-dropdown i {
+            float: right;
+        }
+
+
+    @media all and (max-width: 1024px) {
+        .nav-menu ul.nav-menu-inner li {
+            display: block;
+            width: 100%;
+        }
+
+        .nav-menu {
+            position: static;
+            left: 0;
+            top: 100%;
+            float: none;
+            display: none;
+            width: 100%;
+            background: rgba(34,34,34,0.85);
+            overflow-y: auto;
+            z-index: 999;
+        }
+
+        .nav-bar-icon, .nav-mobile.nav-bar-icon, .header-fixed .nav-bar-icon {
+            display: inline-block;
+            float: right;
+            margin-top: 21px;
+            margin-bottom: 21px;
+        }
+
+        .nav-menu ul.nav-menu-inner li a, .header-fixed .nav-menu ul.nav-menu-inner li a {
+            padding: 15px 12px;
+            border-top: 1px solid #444;
+        }
+
+
+        /* Dropdown */
+        .sub-dropdown.dropdown, .sub-dropdown {
+            top: 100%;
+            position: relative;
+            left: 0;
+            width: 100%;
+        }
+
+            .sub-dropdown a {
+                padding-left: 30px !important;
+            }
+
+        .hmd-header .nav-menu ul.nav-menu-inner li a.current,
+        .hmd-header .nav-menu ul.nav-menu-inner li.current a,
+        &.header-light .nav-menu ul.nav-menu-inner > li:hover > a,
+        &.header-light .nav-menu ul.nav-menu-inner > li > a:hover,
+        &.header-prepare .nav-menu ul.nav-menu-inner li a.current,
+        &.header-prepare .nav-menu ul.nav-menu-inner li.current a {
+            color: #fff;
+        }
+
+        .header-light .nav-menu ul.nav-menu-inner > li > a {
+            color: rgba(255,255,255,0.60);
+        }
+    }
+}

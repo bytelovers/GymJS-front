@@ -1,0 +1,241 @@
+
+/*------------------------------------------------------------------*/
+/* Typography Style */
+/*------------------------------------------------------------------*/
+
+/* Heading */
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+    font-weight: 300;
+    margin-top: 0px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 44px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+    h1.white, h2.white, h3.white, h4.white, h5.white, h6.white, h6 .white {
+        color: #fff;
+    }
+
+    h1.color, h2.color, h3.color, h4.color, h5.color, h6.color, h6 .color {
+        color: #33ccff;
+    }
+
+/* Alternate Hadding */
+.alt-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+h1.alt-title {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+h2.alt-title {
+    font-size: 20px;
+}
+
+h3.alt-title {
+    font-size: 18px;
+}
+
+h4.alt-title {
+    font-size: 16px;
+}
+
+h5.alt-title {
+    font-size: 14px;
+}
+
+h6.alt-title {
+    font-size: 12px;
+}
+
+/*Site Title*/
+
+.page-title {
+    margin-bottom: 60px;
+}
+
+.page-title2 {
+    margin-bottom: 30px;
+}
+
+.content-title {
+    margin-bottom: 25px;
+}
+
+.features-title {
+    margin-bottom: 15px;
+}
+
+
+/*Paragraph*/
+
+.page-content {
+    margin-bottom: 60px;
+}
+
+p {
+    font-size: 14px;
+    color: #626262;
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+
+    p.small {
+        font-size: 12px;
+    }
+
+    p.large {
+        font-size: 16px;
+    }
+
+    p.lead {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    p.lead-lg {
+        font-size: 20px;
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
+
+    p.white, p.small.white, p.large.white, p.lead.white, p .white, .white {
+        color: #ffffff;
+    }
+
+    p.dark, p.small.dark, p.large.dark, p.lead.dark, p .dark, .dark {
+        color: #626262;
+    }
+
+    p.color p.small.color, p.large.color, p.lead.color, p .color, .color {
+        color: #33ccff;
+    }
+
+.yellow {
+    color: #f4efb7;
+}
+
+
+/* Text weight */
+
+.text-light {
+    font-weight: 300;
+}
+
+.text-regular {
+    font-weight: 400;
+}
+
+.text-medium {
+    font-weight: 500;
+}
+
+.text-bold {
+    font-weight: 600;
+}
+
+.text-bolder {
+    font-weight: 700;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.max-width-700 {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* listing */
+ul.list-inside {
+    padding-left: 0px;
+    list-style: inside;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+ul.list-none {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0;
+}
+
+
+/*Links & Anchor Tag*/
+.dark-bg a {
+}
+
+    .dark-bg a:hover {
+    }
+
+a {
+    outline: none;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+}
+
+
+.link, .link-d {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    font-weight: 400;
+    color: inherit;
+    padding-bottom: 2px;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+}
+
+.link {
+    color: #222;
+}
+
+    .Link:hover {
+        color: #33ccff;
+    }
+
+.link-d {
+    color: #fff;
+}
+
+    .link-d:hover {
+        color: #33ccff;
+    }
