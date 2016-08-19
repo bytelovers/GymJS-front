@@ -10,6 +10,7 @@
       'blocks.router',
       'ui.bootstrap',
       'ui.router',
-      'ngplus'
+      'ngplus',
+      'chart.js'
     ]);
 })();
