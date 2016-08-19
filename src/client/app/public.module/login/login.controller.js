@@ -5,17 +5,39 @@
     .module('app.public')
     .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['logger'];
-
   /* @ngInject */
-  function LoginController(logger) {
-    var vm   = this;
-    vm.title = 'Admin';
+  function LoginController(logger,
+                            AuthService) {
+    var vm        = this;
+    vm.title      = 'Admin';
+    vm.errorLogin = false;
+
+    // API
+    vm.login = login;
 
     activate();
 
     function activate() {
       //logger.info('Activated Public View');
+    }
+
+    ////
+    
+    function login() {
+        AuthService
+            .login(vm.userName, vm.userPass)
+            .then(onLoginSuccess, onLoginFailed);
+
+        ////
+        
+        function onLoginSuccess(result) {
+            console.log(result);
+        }
+
+        function onLoginFailed(err) {
+            vm.errorLogin = true;
+            console.log(err);
+        }
     }
   }
 })();

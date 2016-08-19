@@ -5,25 +5,37 @@
         .module('app.public')
         .controller('RankingController', RankingController);
 
-    RankingController.$inject = ['logger', 'RankingService'];
-
     /* @ngInject */
-    function RankingController(logger, RankingService) {
-        var vm = this;
+    function RankingController(logger,
+                                RankingService,
+                                RankingSerializerService) {
+        var vm   = this;
         vm.title = 'Ranking';
 
         activate();
 
         function activate() {
+            loadStats();
+            //logger.info('Activated Public View');
+        }
+
+        ////
+        
+        function loadStats() {
             RankingService
                 .getStats()
-                .then(function(data){
-                    vm.test = data;
-                },
-                function(error){
-                    console.log(error);
-                });
-            //logger.info('Activated Public View');
+                .then(onStatsLoaded, onStatsFailed);
+
+                ////
+                
+                function onStatsLoaded(results) {
+                    vm.rankings = RankingSerializerService.rankingData(results.data);
+                    // vm.scores.weighted = results.data.weighted.top;
+                }
+
+                function onStatsFailed(err) {
+                    console.log(err);
+                }
         }
     }
 })();

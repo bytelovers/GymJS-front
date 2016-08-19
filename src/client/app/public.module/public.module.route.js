@@ -54,7 +54,7 @@
                 }
             },
             {
-                state: 'ranking',
+                state: 'ranking_global',
                 config: {
                     url: '/ranking',
                     templateUrl: 'app/public.module/ranking/ranking.html',

@@ -35,7 +35,11 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                    <form id="register" class="contact-form row" role="form">
+                    <form class="contact-form row"
+                          name="registerForm"
+                          ng-submit="vm.register(registerForm)"
+                          role="form"
+                          novalidate>
                         <div class="col-md-12 text-center">
                             <h5 class="successContent">
                                 <i class="fa fa-check left" style="color: #5cb45d;"></i>Tu registro se ha realizado con éxito.
@@ -47,51 +51,58 @@
 
                         <div class="col-md-12">
                             <div class="form-field-wrapper">
-                                <input id="name" type="text"
-                                    style="text-transform: none;"
-                                    class="input-lg form-full input-fancy"
-                                    placeholder="Tu Nombre" required />
+                                <input type="text"
+                                       name="userName"
+                                       ng-model="vm.user.name"
+                                       class="input-lg form-full input-fancy"
+                                       placeholder="Tu Nombre"
+                                       required />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-field-wrapper">
-                                <input id="login" type="text"
-                                    style="text-transform: none;"
-                                    class="input-lg form-full input-fancy"
-                                    placeholder="Tu nick"
-                                    required />
+                                <input type="text"
+                                       name="userAlias"
+                                       ng-model="vm.user.alias"
+                                       class="input-lg form-full input-fancy"
+                                       placeholder="Tu nick"
+                                       required />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-field-wrapper">
-                                <input id="password" type="password"
-                                    style="text-transform: none;"
-                                    class="input-lg form-full input-fancy"
-                                    placeholder="Tu constraseña"
-                                    required />
+                                <input type="password"
+                                       name="userPass"
+                                       ng-model="vm.user.pass"
+                                       class="input-lg form-full input-fancy"
+                                       placeholder="Tu constraseña"
+                                       required />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-field-wrapper">
-                                <input id="mail" type="text"
-                                    style="text-transform: none;"
-                                    class="input-lg form-full input-fancy"
-                                    placeholder="Tu mail"
-                                    required />
+                                <input type="email"
+                                       name="userEmail"
+                                       ng-model="vm.user.email"
+                                       class="input-lg form-full input-fancy"
+                                       placeholder="Tu mail"
+                                       required />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-field-wrapper">
-                                <input id="twitter" type="text"
-                                    style="text-transform: none;"
-                                    class="input-lg form-full input-fancy"
-                                    placeholder="Tu twitter"
-                                    required />
+                                <input type="text"
+                                       name="userTwitter"
+                                       ng-model="vm.user.twitter"
+                                       class="input-lg form-full input-fancy"
+                                       placeholder="Tu twitter"
+                                       required />
                             </div>
                         </div>
 
-                        <div class="col-md-12" style="margin-top: 50px;">
-                            <button class="btn-contact-submit btn btn-lg btn-black" id="form-submit">Registrarme</button>
+                        <div class="col-md-12 mt-50">
+                            <button class="btn-contact-submit btn btn-lg btn-black"
+                                    type="submit">Registrarme</button>
                         </div>
 
                     </form>
