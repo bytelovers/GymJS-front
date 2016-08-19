@@ -33,38 +33,45 @@
         <p class="lead-lg max-width-700 mb-60">Ya eres miembro de El Hack Más Dificil del verano. Entra Ya y demuestra tus habilidades de programación en JavaScript</p>
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div id="error" class="col-md-12 text-center">
-                    <h5 class="-errorContent" style="color: #e1534f;">
+            <form ng-submit="vm.login()"
+                  name="loginForm"
+                  class="col-md-8 col-md-offset-2"
+                  novalidate>
+                <div ng-if="loginForm.$error && loginForm.$dirty"
+                     class="col-md-12 text-center">
+                    <h5 class="error"
+                         ng-if="vm.errorLogin">
                         <i class="fa fa-exclamation-circle left"></i>Login incorrecto. El nombre de usuario o la constraseña no son válidos.
                     </h5>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-field-wrapper">
-                        <input id="login"  style="text-transform: none;"
-                            type="text"
-                            class="input-lg form-full input-fancy"
-                            placeholder="Tu nick"
-                            required />
+                        <input type="text"
+                                name="userName"
+                                ng-model="vm.userName"
+                                class="input-lg form-full input-fancy"
+                                placeholder="Tu nick"
+                                required />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-field-wrapper">
-                        <input id="password" style="text-transform: none;"
-                            type="password"
-                            class="input-lg form-full input-fancy"
-                            placeholder="Tu password"
-                            required />
+                        <input type="password"
+                               name="userPass"
+                               ng-model="vm.userPass"
+                               class="input-lg form-full input-fancy"
+                               placeholder="Tu password"
+                               required />
                     </div>
                 </div>
 
                 <div class="col-md-12" style="margin-top: 50px;">
                     <button id="login-submit"
                         class="btn-contact-submit btn btn-lg btn-black"
-                        name="submit">Entrar</button>
+                        type="submit">Entrar</button>
                 </div>
-            </div>
+            </form>
         </div>
 
     </div>
