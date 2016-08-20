@@ -23,6 +23,14 @@
                 }
             },
             {
+                state: 'error',
+                config: {
+                    url: '/error',
+                    templateUrl: 'app/public.module/error/error.html',
+                    title: ''
+                }
+            },
+            {
                 state: 'login',
                 config: {
                     url: '/login',

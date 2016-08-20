@@ -7,7 +7,7 @@
 
   /* @ngInject */
   function appRun(routerHelper) {
-    var otherwise = '/404';
+    var otherwise = '/error';
     routerHelper.configureStates(getStates(), otherwise);
   }
 
