@@ -10,6 +10,7 @@
       'blocks.router',
       'ui.bootstrap',
       'ui.router',
+      'ace',
       'ngplus',
       'chart.js'
     ]);

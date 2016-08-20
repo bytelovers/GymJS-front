@@ -5,8 +5,6 @@
     .module('app.public')
     .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['logger'];
-
   /* @ngInject */
   function HomeController(logger) {
     var vm = this;

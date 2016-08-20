@@ -5,7 +5,6 @@
         .module('app.public')
         .run(appRun);
 
-    appRun.$inject = ['routerHelper'];
     /* @ngInject */
     function appRun(routerHelper) {
         routerHelper.configureStates(getStates());
@@ -62,7 +61,57 @@
                     controllerAs: 'vm',
                     title: 'Ranking'
                 }
+            },
+            {
+                state: 'challenge',
+                config: {
+                    url: '/challenges/:challengeId',
+                    templateUrl: 'app/public.module/challenge/challenge.html',
+                    controller: 'ChallengeController',
+                    controllerAs: 'vm',
+                    title: 'Challenges',
+                    params: {
+                        challengeId: 'null'
+                    },
+                    resolve: {
+                        challengeData : challengeData
+                    },
+                }
             }
         ];
+    }
+
+    /* @ngInject */
+    function challengeData($q,
+                           $state,
+                           $stateParams,
+                           $timeout,
+                           ChallengeService) {
+        
+        var defer = $q.defer();
+
+        $timeout(function(){
+            if ($stateParams.challengeId === null) {
+                $state.go('home');
+                defer.reject();
+            } else {
+                ChallengeService
+                    .getChallenge($stateParams.challengeId)
+                    .then(onChallengeSuccess, onChallengeFails);
+            }
+
+        });
+
+        ////
+        
+        function onChallengeSuccess(result) {
+            defer.resolve(result.data.outcome);
+        }
+
+        function onChallengeFails(err) {
+            defer.reject();
+        }
+
+        return defer.promise;
     }
 })();

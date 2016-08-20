@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+  <link rel="stylesheet" href="/bower_components/etlinefont-bower/style.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -45,7 +46,7 @@
 
   <!-- build:js js/lib.js -->
   <!-- bower:js -->
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/jquery/jquery.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -56,6 +57,11 @@
   <script src="/bower_components/angular-animate/angular-animate.js"></script>
   <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+  <script src="/bower_components/ace-builds/src-min-noconflict/mode-javascript.js"></script>
+  <script src="/bower_components/ace-builds/src-min-noconflict/theme-chrome.js"></script>
+  <script src="/bower_components/angular-ace/lib/angular-ace.js"></script>
+  <script src="/bower_components/angular-moment/angular-moment.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -85,6 +91,8 @@
   <script src="/src/client/app/core/dataservice.js"></script>
   <script src="/src/client/app/core/services/auth.service.js"></script>
   <script src="/src/client/app/core/services/http.interceptor.service.js"></script>
+  <script src="/src/client/app/public.module/challenge/challenge.controller.js"></script>
+  <script src="/src/client/app/public.module/challenge/challenge.service.js"></script>
   <script src="/src/client/app/public.module/faq/faq.controller.js"></script>
   <script src="/src/client/app/public.module/faq/faq.service.js"></script>
   <script src="/src/client/app/public.module/home/home.controller.js"></script>

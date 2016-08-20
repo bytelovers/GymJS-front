@@ -5,8 +5,6 @@
     .module('app.public')
     .controller('FaqController', FaqController);
 
-  FaqController.$inject = ['faqService', 'logger'];
-
   /* @ngInject */
   function FaqController(faqService,
                          logger) {
