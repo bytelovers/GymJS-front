@@ -15,19 +15,54 @@
     function configure($httpProvider,
                        $logProvider,
                        routerHelperProvider,
-                       exceptionHandlerProvider) {
-        if ($logProvider.debugEnabled) {
-            $logProvider.debugEnabled(true);
+                       exceptionHandlerProvider,
+                       jwtInterceptorProvider,
+                       jwtOptionsProvider) {
+
+        initToastr();
+        initLogProvider();
+        initRouterHelperProviders();
+        initExceptionHandlerProviders();
+        initJWTOptionsProvider();
+        initInterceptors();
+
+        function initLogProvider() {
+            if ($logProvider.debugEnabled) {
+                $logProvider.debugEnabled(true);
+            }
         }
 
-        // Toastr configuration
-        toastr.options.timeOut = 4000;
-        toastr.options.positionClass = 'toast-bottom-right';
+        function initRouterHelperProviders() {
+            routerHelperProvider.configure({ docTitle: config.appTitle + ': ' });
+        }
 
-        exceptionHandlerProvider.configure(config.appErrorPrefix);
-        routerHelperProvider.configure({ docTitle: config.appTitle + ': ' });
+        function initExceptionHandlerProviders() {
+            exceptionHandlerProvider.configure(config.appErrorPrefix);
+        }
 
-        $httpProvider.interceptors.push('httpInterceptor');
+        function initJWTOptionsProvider() {
+            jwtOptionsProvider.config({
+                whiteListedDomains: ['app.hackmasdificil.com', 'localhost']
+            });
+        }
+
+        function initInterceptors() {
+            jwtInterceptorProvider.tokenGetter = tokenGetter;
+            // jwtInterceptorProvider.authPrefix = 'Bearer ';
+
+            $httpProvider.interceptors.push('jwtInterceptor');
+            $httpProvider.interceptors.push('httpInterceptor');
+        }
+
+        function initToastr() {
+            // Toastr configuration
+            toastr.options.timeOut = 4000;
+            toastr.options.positionClass = 'toast-bottom-right';
+        }
     }
 
+    /* @ngInject */
+    function tokenGetter(config, AuthService) {
+        return AuthService.interceptorTokenGetter(config.url);
+    }
 })();

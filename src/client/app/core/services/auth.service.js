@@ -8,21 +8,108 @@
     /* @ngInject */
     function AuthService($q,
                          $http,
+                         localStorageService,
+                         jwtHelper,
                          CONFIG) {
+        var config = {
+            tokenkey : 'token'
+        };
+
+        var _userData = null;
+
         return {
-            login    : login,
-            register : register
+            login                  : login,
+            logout                 : logout,
+            getToken               : getToken,
+            getUser                : getUser,
+            isLogged               : isLogged,
+            register               : register,
+            setUser                : setUser,
+            interceptorTokenGetter : interceptorTokenGetter
         }
 
         function login(user, pass) {
-            return $http.post(CONFIG.apiBaseUrl + '/login', {
-                login : user,
-                pwd   : pass
-            });
+            var defer = $q.defer();
+            authenticate();
+            return defer.promise;
+
+            function authenticate() {
+                var _loginData = {
+                    login : user,
+                    pwd   : pass
+                };
+
+                $http
+                    .post(CONFIG.apiBaseUrl + '/login', _loginData)
+                    .then(onLoginSuccess, onLoginFails);
+
+                ////
+                
+                function onLoginSuccess(result) {
+                    setToken(result.data.outcome['x-token']);
+                }
+
+                function onLoginFails(err) {
+                    removeToken();
+                }
+            }
+        }
+
+        function logout() {
+            removeToken();
+            setUser(null);
         }
 
         function register(data) {
             return $http.post(CONFIG.apiBaseUrl + '/users', data);
+        }
+
+        function getUser() {
+            return _userData;
+        }
+
+        function isLogged() {
+            if (typeof getToken() === 'undefined' || getToken() === null) { return false };
+
+            var _isExpired = jwtHelper.isTokenExpired(getToken());
+            return !_isExpired;
+        }
+
+        function setUser(user) {
+            _userData = user;
+        }
+
+        /**
+         * Return auth token
+         * @returns {*} token
+         */
+        function getToken() {
+            return localStorageService.get(config.tokenkey);
+        }
+
+        /**
+         * Set auth token
+         * @param token
+         * @returns {*}
+         */
+        function setToken(token) {
+            localStorageService.set(config.tokenkey, token);
+        }
+
+        /**
+         * Remove user token
+         */
+        function removeToken() {
+            localStorageService.remove(config.tokenrkey);
+        }
+
+        function interceptorTokenGetter(url) {
+            var idToken = getToken();
+            if (!idToken) {
+                return null;
+            }
+
+            return idToken;
         }
     }
 })();

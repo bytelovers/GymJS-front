@@ -5,6 +5,7 @@
     .module('app.core', [
       'ngAnimate',
       'ngSanitize',
+      'angular-jwt',
       'blocks.exception',
       'blocks.logger',
       'blocks.router',
