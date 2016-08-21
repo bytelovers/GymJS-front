@@ -71,6 +71,23 @@
                 }
             },
             {
+                state: 'ranking_metric',
+                config: {
+                    url: '/ranking/:rankingName',
+                    templateUrl: 'app/public.module/ranking/ranking-detail.html',
+                    controller: 'RankingDetailController',
+                    controllerAs: 'vm',
+                    title: 'Ranking',
+                    params: {
+                        rankingName : null,
+                        rankingData : null
+                    },
+                    resolve: {
+                        rankingData : rankingData
+                    },
+                }
+            },
+            {
                 state: 'challenge',
                 config: {
                     url: '/challenges/:challengeId',
@@ -79,7 +96,8 @@
                     controllerAs: 'vm',
                     title: 'Challenges',
                     params: {
-                        challengeId: 'null'
+                        challengeId: null,
+                        challengeData: null
                     },
                     resolve: {
                         challengeData : challengeData
@@ -119,6 +137,25 @@
         function onChallengeFails(err) {
             defer.reject();
         }
+
+        return defer.promise;
+    }
+
+    function rankingData($q,
+                         $timeout,
+                         $state,
+                         $stateParams) {
+
+        var defer = $q.defer();
+
+        $timeout(function() {
+            if ($stateParams.rankingName === null || $stateParams.rankingData === null) {
+                $state.go('home');
+                defer.reject();
+            } else {
+                defer.resolve($stateParams.rankingData);
+            }
+        });
 
         return defer.promise;
     }

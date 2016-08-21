@@ -47,9 +47,11 @@
                 var _axisY = _item.graphA.map(function(item) { return item.y; });
 
                 _tmpData[_name] = {
-                    text  : getTextSection(_name), 
-                    top   : _item.top,
-                    chart : {
+                    name    : _name,
+                    text    : getTextSection(_name), 
+                    top     : _item.top,
+                    ranking : _item.ranking,
+                    chart   : {
                         labels : ['Participantes'],
                         data   : [_axisX, _axisY],
                         options: {

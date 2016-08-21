@@ -30,11 +30,10 @@
                 
                 function onStatsLoaded(results) {
                     vm.rankings = RankingSerializerService.rankingData(results.data);
-                    // vm.scores.weighted = results.data.weighted.top;
                 }
 
                 function onStatsFailed(err) {
-                    console.log(err);
+                    logger(err);
                 }
         }
     }
