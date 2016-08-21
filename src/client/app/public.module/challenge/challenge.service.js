@@ -8,7 +8,12 @@
     /* @ngInject */
     function ChallengeService($http, CONFIG) {
         return {
-            getChallenge : getChallenge
+            getChallenges : getChallenges,
+            getChallenge  : getChallenge
+        }
+
+        function getChallenges(challengeId) {
+            return $http.get(CONFIG.apiBaseUrl + '/challenges');
         }
 
         function getChallenge(challengeId) {

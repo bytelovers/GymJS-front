@@ -1,19 +1,37 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('app.public')
-    .controller('HomeController', HomeController);
+    angular
+        .module('app.public')
+        .controller('HomeController', HomeController);
 
-  /* @ngInject */
-  function HomeController(logger) {
-    var vm = this;
-    vm.title = 'Admin';
+    /* @ngInject */
+    function HomeController(logger,
+                            ChallengeService) {
+        var vm   = this;
+        vm.title = 'Admin';
 
-    activate();
+        activate();
 
-    function activate() {
-      logger.info('Activated Public View');
+        function activate() {
+            loadChallenges();
+            // logger.info('Activated Public View');
+        }
+
+        function loadChallenges() {
+            ChallengeService
+                .getChallenges()
+                .then(onChallengesSuccess, onChallengesFails);
+
+            ////
+            
+            function onChallengesSuccess(results) {
+                vm.challenges = results.data.outcome;
+            }
+
+            function onChallengesFails(err) {
+                logger(err);
+            }
+        }
     }
-  }
 })();

@@ -34,7 +34,25 @@
     </div>
 
     <div class="container">
-        <div id="challenges-container" class="rows portfolio-grid gallery-popup">
+        <div id="challenges-container"
+             class="rows portfolio-grid gallery-popup">
+            <div class="portfolio-item" ng-repeat="challenge in vm.challenges">
+                <div class="portfolio-box">
+                    <a ui-sref="challenge({challengeId: challenge.name })" title="{{ ::challenge.title }}" >
+                        <div class="portfolio-image-wrap">
+                            <img src="images/challenges/{{ ::challenge.name }}/{{ ::challenge.name }}.png" alt="{{ ::challenge.name }}"/>
+                        </div>
+                        <div class="portfolio-caption-mask">
+                            <div class="portfolio-caption-text">
+                                <div class="portfolio-caption-tb-cell">
+                                    <h5 class="alt-title" ng-bind="::challenge.name"></h5>
+                                    <p ng-bind="::challenge.description"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
