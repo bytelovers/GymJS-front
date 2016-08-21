@@ -33,7 +33,11 @@
                         <p class="lead">
                             Puedes actualizar los datos de tu perfil a excepción del login que te identifica en el juego.
                         </p>
-                        <form id="personal-data" class="contact-form row" role="form" style="margin-bottom: 20px;">
+                        <form class="contact-form row mb-20"
+                              name="updateUserForm"
+                              ng-submit="vm.updateUser()";
+                              role="form"
+                              novalidate>
                             <div class="col-md-12 text-center">
                                 <h5 class="successContent">
                                     <i class="fa fa-check left" style="color: #5cb45d;"></i>Perfil actualizado con éxito.
@@ -44,28 +48,52 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-field-wrapper">
-                                    <input class="input-lg form-full" id="form-name" type="text" name="form-name" placeholder="Nombre" required />
+                                    <input class="input-lg form-full"
+                                           type="text"
+                                           name="form-name"
+                                           ng-model="vm.user.name"
+                                           placeholder="Nombre"
+                                           required />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-field-wrapper">
-                                    <input class="input-lg form-full" id="form-nick" type="text" name="form-nick" placeholder="jDoe" disabled value="jDoe" />
+                                    <input class="input-lg form-full"
+                                           type="text"
+                                           name="form-nick"
+                                           ng-model="vm.user.login"
+                                           placeholder="jDoe"
+                                           ng-disabled="true"
+                                           value="jDoe" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-field-wrapper">
-                                    <input class="input-lg form-full" id="form-twitter" type="text" name="form-twitter" placeholder="Twitter" required />
+                                    <input class="input-lg form-full"
+                                           type="text"
+                                           name="form-twitter"
+                                           ng-model="vm.user.twitter"
+                                           placeholder="Twitter"
+                                           required />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-field-wrapper">
-                                    <input class="input-lg form-full" id="form-mail" type="text" name="form-mail" placeholder="Mail" required />
+                                    <input class="input-lg form-full"
+                                           type="email"
+                                           name="form-mail"
+                                           ng-model="vm.user.email"
+                                           placeholder="Mail"
+                                           required />
                                 </div>
                             </div>
                             <div class="col-md-12" style="width:250px;">
-                                <button style="width:200px;" class="btn-contact-submit btn btn-lg btn-black" type="button"  onclick="updateProfile()">Actualizar</button>
+                                <button style="width:200px;"
+                                        class="btn-contact-submit btn btn-lg btn-black"
+                                        type="submit">Actualizar</button>
                             </div>
                         </form>
+
                         <form id="personal-data-form" class="contact-form row" >
                             <div class="col-md-12 text-center">
                                 <h5 id="changeProfileMessage" class="successContent">

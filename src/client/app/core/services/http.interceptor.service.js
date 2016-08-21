@@ -2,10 +2,14 @@
     'use strict';
     angular
         .module('app.core')
-        .factory('httpInterceptor', function ($q, $rootScope, CONFIG) {
+        .factory('httpInterceptor', function ($q, $rootScope, localStorageService, CONFIG) {
             return {
                 'request': function (config) {
                     config.headers['x-api-key'] = CONFIG.apiToken;
+
+                    if(localStorageService.get('token')) {
+                        config.headers['x-token'] = localStorageService.get('token');
+                    }
 
                     return config;
                 },

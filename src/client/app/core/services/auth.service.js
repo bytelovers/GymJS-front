@@ -8,6 +8,7 @@
     /* @ngInject */
     function AuthService($q,
                          $http,
+                         $state,
                          localStorageService,
                          jwtHelper,
                          CONFIG) {
@@ -15,13 +16,14 @@
             tokenkey : 'token'
         };
 
-        var _userData = null;
+        var _userData  = null;
+        var _loginName = null;
 
         return {
             login                  : login,
             logout                 : logout,
             getToken               : getToken,
-            getUser                : getUser,
+            getCurrentUser         : getCurrentUser,
             isLogged               : isLogged,
             register               : register,
             setUser                : setUser,
@@ -46,7 +48,9 @@
                 ////
                 
                 function onLoginSuccess(result) {
+                    _loginName = result.data.outcome.login;
                     setToken(result.data.outcome['x-token']);
+                    $state.go('private.profile');
                 }
 
                 function onLoginFails(err) {
@@ -64,7 +68,11 @@
             return $http.post(CONFIG.apiBaseUrl + '/users', data);
         }
 
-        function getUser() {
+        function getCurrentUser() {
+            if(_userData === null) {
+                _userData = $http
+                                .get(CONFIG.apiBaseUrl + '/users/' + _loginName);   
+            }
             return _userData;
         }
 
