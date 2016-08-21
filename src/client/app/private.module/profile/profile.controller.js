@@ -12,6 +12,8 @@
         vm.title = 'Admin';
         vm.user  = {}
 
+        vm.updateUser = updateUser;
+
         activate();
 
         function activate() {
@@ -29,6 +31,27 @@
             }
 
             function onUserFails(err) {
+                logger.error(err);
+            }
+        }
+
+        function updateUser() {
+            var _data = {
+                email   : vm.user.email,
+                name    : vm.user.name,
+                twitter : vm.user.twitter
+            };
+            AuthService
+                .updateCurrentUser(_data)
+                .then(onUpdateSuccess, onUpdateFails);
+
+            ////
+
+            function onUpdateSuccess(result) {
+                logger.success(result.data.outcome);
+            }
+
+            function onUpdateFails(err) {
                 logger.error(err);
             }
         }

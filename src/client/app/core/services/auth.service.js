@@ -24,6 +24,7 @@
             logout                 : logout,
             getToken               : getToken,
             getCurrentUser         : getCurrentUser,
+            updateCurrentUser      : updateCurrentUser,
             isLogged               : isLogged,
             register               : register,
             setUser                : setUser,
@@ -74,6 +75,10 @@
                                 .get(CONFIG.apiBaseUrl + '/users/' + _loginName);   
             }
             return _userData;
+        }
+
+        function updateCurrentUser(user) {
+            return $http.put(CONFIG.apiBaseUrl + '/users/' + _loginName, user);
         }
 
         function isLogged() {
