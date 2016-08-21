@@ -1,0 +1,178 @@
+<!-- Page Intro -->
+<section id="inner-intro" class="inner-intro bg-image overlay-dark40 dark-bg parallax parallax-background2" data-background-img="img/banner.jpg">
+    <div class="container">
+        <div class="intro-content">
+            <div class="intro-content-inner">
+                <h1 class="">El Hack Más Dificil Del Verano</h1>
+                <h1 class="alt-title intro-sub-title">VERANO 2016</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Page Intro -->
+        
+<!-- Profile Section -->
+<section class="section-padding pt-50">
+    <div class="container text-center pt-50">
+        <h1>Perfil Personal</h1>
+        <p class="lead-lg max-width-700 mb-60">Desde aquí puedes acceder a toda la información que El Juego Más Dificil del Verano registra sobre tí. Tus Datos personales y los resultados de tus soluciones para cada reto. </p>
+    </div>
+</section>
+<!-- Profile Section -->
+
+
+<!-- Personal Data Section -->
+<section class="section-padding p-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 -col-md-offset-2">
+                <div class="blog-post challenge-post">
+                    <div class="post-entry">
+                        <h1><i class="icon-wallet"></i></h1>
+                        <h3 class="icon-tab-nav-title alt-title">Datos Personales</h3>
+                        <p class="lead">
+                            Puedes actualizar los datos de tu perfil a excepción del login que te identifica en el juego.
+                        </p>
+                        <form id="personal-data" class="contact-form row" role="form" style="margin-bottom: 20px;">
+                            <div class="col-md-12 text-center">
+                                <h5 class="successContent">
+                                    <i class="fa fa-check left" style="color: #5cb45d;"></i>Perfil actualizado con éxito.
+                                </h5>
+                                <h5 class="errorContent" style="color: #e1534f;">
+                                    <i class="fa fa-exclamation-circle left"></i>Hubo algún error. Revisa los campos introducidos.
+                                </h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-field-wrapper">
+                                    <input class="input-lg form-full" id="form-name" type="text" name="form-name" placeholder="Nombre" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-field-wrapper">
+                                    <input class="input-lg form-full" id="form-nick" type="text" name="form-nick" placeholder="jDoe" disabled value="jDoe" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-field-wrapper">
+                                    <input class="input-lg form-full" id="form-twitter" type="text" name="form-twitter" placeholder="Twitter" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-field-wrapper">
+                                    <input class="input-lg form-full" id="form-mail" type="text" name="form-mail" placeholder="Mail" required />
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="width:250px;">
+                                <button style="width:200px;" class="btn-contact-submit btn btn-lg btn-black" type="button"  onclick="updateProfile()">Actualizar</button>
+                            </div>
+                        </form>
+                        <form id="personal-data-form" class="contact-form row" >
+                            <div class="col-md-12 text-center">
+                                <h5 id="changeProfileMessage" class="successContent">
+                                    <i class="fa fa-check left" style="color: #5cb45d;"></i>Perfil actualizado con éxito.
+                                </h5>
+                                <h5 id="changeProfileErrorMessage" class="errorContent" style="color: #e1534f;">
+                                    <i class="fa fa-exclamation-circle left"></i>Hubo algún error. Revisa los campos introducidos.
+                                </h5>
+                            </div>
+                             <div class="col-md-6">
+                                <div class="form-field-wrapper">
+                                    <input class="input-lg form-full" id="oldPassword" type="password" placeholder="Password Antiguo" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-field-wrapper">
+                                    <input class="input-lg form-full" id="newPassword" type="password"  placeholder="Password Nuevo" required />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button style="width:200px;" type="button" class="btn-contact-submit btn btn-lg btn-black" onclick="updatePassword()">Cambiar Password</button>
+                            </div>
+                            <h5 id="errorChangePasswordMessage" class="errorContent" style="color: #e1534f;">
+                                <i class="fa fa-exclamation-circle left"></i>Hubo algún error. Revisa los campos introducidos.
+                            </h5>
+                        </form>
+                    </div>
+                    <div class="post-entry" style="margin-top: 50px;">
+                        <h1><i class="icon-piechart"></i></h1>
+                        <h3 class="icon-tab-nav-title alt-title">Detalles por Reto</h3>
+                        <p class="lead">
+                            Selecciona uno de los retos en los que has participado para acceder a los detalles de tu solución.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Personal Data Section -->
+
+<!-- Solutions Section -->
+<section class="section-padding pos-section" style="margin: 0; padding:0;">
+    <div class="container">
+        <div id="jobs-container" class="rows portfolio-grid gallery-popup"></div>
+    </div>
+</section>
+<!-- End Solutions Section -->
+
+<!-- Summary Section -->
+<section class="section-padding" style="padding: 50px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-post challenge-post">
+                    <div class="post-entry">
+                        <h1><i class="icon-bargraph"></i></h1>
+                        <h3 class="icon-tab-nav-title alt-title">Sumario de Mi Estado</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row chart" style="padding:top: 0; margin-top: 0;">
+            <div class="col-md-6 mb-sm-30">
+                <h5 class="alt-title">Evolución por semanas</h5>
+                <p class="large">Evolución de la posición que has ido obteniendo semana a semana a lo largo del juego. Una curva ascendente significa que has ido ganando posiciones y mejorando progresivamente.</p>
+                <canvas id="chart-1"></canvas>
+            </div>
+            <div class="col-md-6 mb-sm-30">
+                <h5 class="alt-title">Media de Metricas en Rango</h5>
+                <p class="large">Valor medio (azul) de la posición que has obtenido en todas tus métricas a lo largo del tiempo en relación a dónde se coloca el valor medio de los demás paricipantes (verde).</p>
+                <canvas id="chart-2"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row chart" -style="padding:top: 0; margin-top: 0;">
+            <div class="col-md-6 mb-sm-30">
+                <h5 class="alt-title">Trofeos Obtenidos</h5>
+                <p class="large">Relación de todos los trofeos acumulados durante el juego a lo largo de las sucesivas semanas.</p>
+                <div class="post-author-hadding">
+                    Trofeos Obtenidos
+                </div>
+                <div id="awards-container"></div>
+            </div>
+            <div class="col-md-6 mb-sm-30">
+                <h5 class="alt-title">Trabajo realizado</h5>
+                <p class="large">Te resumimos la relación de semenas en las que has enviado alguna solución para el reto planteado.</p>
+                <div class="post-author-hadding">
+                    Trabajo Realizado
+                </div>
+                <div id="work-container"></div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="container text-center" style="margin-top:100px;">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn-contact-submit btn btn-lg btn-black" 
+                    href="challenge.html" 
+                    style="width:300px;">Volver al reto</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End Summary Section -->

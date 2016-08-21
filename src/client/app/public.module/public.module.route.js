@@ -13,7 +13,15 @@
     function getStates() {
         return [
             {
-                state: 'home',
+                state: 'public',
+                config: {
+                    url: '',
+                    template: '<ui-view></ui-view>',
+                    abstract: true
+                }
+            },
+            {
+                state: 'public.home',
                 config: {
                     url: '/',
                     templateUrl: 'app/public.module/home/home.html',
@@ -23,7 +31,7 @@
                 }
             },
             {
-                state: 'error',
+                state: 'public.error',
                 config: {
                     url: '/error',
                     templateUrl: 'app/public.module/error/error.html',
@@ -31,7 +39,7 @@
                 }
             },
             {
-                state: 'login',
+                state: 'public.login',
                 config: {
                     url: '/login',
                     templateUrl: 'app/public.module/login/login.html',
@@ -41,7 +49,7 @@
                 }
             },
             {
-                state: 'register',
+                state: 'public.register',
                 config: {
                     url: '/register',
                     templateUrl: 'app/public.module/register/register.html',
@@ -51,7 +59,7 @@
                 }
             },
             {
-                state: 'faq',
+                state: 'public.faq',
                 config: {
                     url: '/faq',
                     templateUrl: 'app/public.module/faq/faq.html',
@@ -61,7 +69,7 @@
                 }
             },
             {
-                state: 'ranking_global',
+                state: 'public.ranking_global',
                 config: {
                     url: '/ranking',
                     templateUrl: 'app/public.module/ranking/ranking.html',
@@ -71,7 +79,7 @@
                 }
             },
             {
-                state: 'ranking_metric',
+                state: 'public.ranking_metric',
                 config: {
                     url: '/ranking/:rankingName',
                     templateUrl: 'app/public.module/ranking/ranking-detail.html',
@@ -88,7 +96,7 @@
                 }
             },
             {
-                state: 'challenge',
+                state: 'public.challenge',
                 config: {
                     url: '/challenges/:challengeId',
                     templateUrl: 'app/public.module/challenge/challenge.html',

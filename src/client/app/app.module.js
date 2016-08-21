@@ -5,8 +5,8 @@
       .module('app', [
           'app.core',
 
-          'app.public'/*,
-          'app.widgets'*/
+          'app.private',
+          'app.public'
   ]);
 
 })();

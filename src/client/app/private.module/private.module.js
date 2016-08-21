@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('app.public', [
+  angular.module('app.private', [
     'app.widgets'
   ]);
 

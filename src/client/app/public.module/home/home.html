@@ -38,7 +38,7 @@
              class="rows portfolio-grid gallery-popup">
             <div class="portfolio-item" ng-repeat="challenge in vm.challenges">
                 <div class="portfolio-box">
-                    <a ui-sref="challenge({challengeId: challenge.name })" title="{{ ::challenge.title }}" >
+                    <a ui-sref="public.challenge({challengeId: challenge.name })" title="{{ ::challenge.title }}" >
                         <div class="portfolio-image-wrap">
                             <img src="images/challenges/{{ ::challenge.name }}/{{ ::challenge.name }}.png" alt="{{ ::challenge.name }}"/>
                         </div>
@@ -66,10 +66,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <a class="btn-contact-submit btn btn-lg btn-black"
-                    ui-sref="ranking_global"
+                    ui-sref="public.ranking_global"
                     style="width:300px; margin:5px;">Consultar Ranking Global</a>
                 <a class="show-when-logged btn-contact-submit btn btn-lg btn-black"
-                    ui-sref="profile"
+                    ui-sref="private.profile"
                     style="width:300px; margin:5px;">Consultar Mi Perfil</a>
             </div>
         </div>
