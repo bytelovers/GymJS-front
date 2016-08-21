@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                <h1><i class="icon-bargraph"></i></h1>
-                <h5 id="title" class="icon-tab-nav-title alt-title"></h5>
+                <h5 id="title" class="icon-tab-nav-title alt-title" ng-bind="::vm.rankingData.text.title"></h5>
                 <p class="lead">
                     Puedes inspeccionar el ránking completo de participantes en relación a la métrica.
                 </p>
@@ -51,7 +51,7 @@
                                 <td>Puntos</td>
                                 <td>Mención</td>
                             </tr>
-                            <tr ng-repeat="score in vm.rankingData">
+                            <tr ng-repeat="score in vm.rankingData.ranking">
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ ::score.user }}</td>
                                 <td>{{ ::score.points }}</td>
