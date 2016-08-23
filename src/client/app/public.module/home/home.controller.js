@@ -7,7 +7,8 @@
 
     /* @ngInject */
     function HomeController(logger,
-                            ChallengeService) {
+                            ChallengeService,
+                            ChallengeSerializerService) {
         var vm   = this;
         vm.title = 'Admin';
 
@@ -26,7 +27,7 @@
             ////
             
             function onChallengesSuccess(results) {
-                vm.challenges = results.data.outcome;
+                vm.challenges = ChallengeSerializerService.challengeData(results.data.outcome);
             }
 
             function onChallengesFails(err) {

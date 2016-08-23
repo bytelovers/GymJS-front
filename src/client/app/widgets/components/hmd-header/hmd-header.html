@@ -11,13 +11,16 @@
         <!-- End Logo -->
 
         <!-- Mobile Navbar Icon -->
-        <div class="nav-mobile nav-bar-icon">
+        <div class="nav-mobile nav-bar-icon"
+              ng-class="{'active': vm.mobileHeaderOpened }"
+              ng-click="vm.toggleOpened()">
             <span></span>
         </div>
         <!-- End Mobile Navbar Icon -->
 
         <!-- Navbar Navigation -->
-        <div class="nav-menu singlepage-nav">
+        <div class="nav-menu singlepage-nav"
+              ng-class="{'active': vm.mobileHeaderOpened }">
             <ul class="nav-menu-inner">
                 <li><a ui-sref="public.home" ui-sref-active="current">Home</a></li>
                 <li><a ui-sref="public.ranking_global" ui-sref-active="current">Ranking</a></li>

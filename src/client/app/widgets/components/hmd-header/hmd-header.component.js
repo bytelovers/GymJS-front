@@ -6,7 +6,7 @@
     .component('hmdHeader', {
       restrict: 'E',
       templateUrl: 'src/client/app/widgets/components/hmd-header/hmd-header.html',
-      controller: Controller,
+      controller: 'HmdHeaderController',
       controllerAs: 'vm'/*,
         bindings: {
             beneficiary: '=',
@@ -18,8 +18,4 @@
             active: '=?'
         }*/
     });
-
-  /* @ngInject */
-  function Controller() {
-  }
 })();
