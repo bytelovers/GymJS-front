@@ -6,15 +6,24 @@
         .controller('HmdHeaderController', HmdHeaderController);
 
     /* @ngInject */
-    function HmdHeaderController(logger) {
+    function HmdHeaderController($rootScope,
+                                 logger,
+                                 AuthService) {
         var vm                = this;
         vm.title              = 'Admin';
-        vm.mobileHeaderOpened = false
+        vm.mobileHeaderOpened = false;
+        vm.user = {
+            isLogged: false
+        }
 
         vm.toggleOpened = toggleOpened;
 
         function toggleOpened() {
             vm.mobileHeaderOpened = !vm.mobileHeaderOpened;
         }
+
+        $rootScope.$on('user:logged', function(){
+            vm.user.isLogged = AuthService.isLogged();
+        });
     }
 })();

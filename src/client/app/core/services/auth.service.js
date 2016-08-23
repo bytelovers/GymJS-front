@@ -9,6 +9,7 @@
     function AuthService($q,
                          $http,
                          $state,
+                         $rootScope,
                          localStorageService,
                          jwtHelper,
                          CONFIG) {
@@ -51,6 +52,7 @@
                 function onLoginSuccess(result) {
                     _loginName = result.data.outcome.login;
                     setToken(result.data.outcome['x-token']);
+                    $rootScope.$emit('user:logged');
                     $state.go('private.profile');
                 }
 
@@ -61,6 +63,7 @@
         }
 
         function logout() {
+            _userData = null;
             removeToken();
             setUser(null);
         }
@@ -70,11 +73,25 @@
         }
 
         function getCurrentUser() {
+            var defer = $q.defer();
             if(_userData === null) {
-                _userData = $http
-                                .get(CONFIG.apiBaseUrl + '/users/' + _loginName);   
+                $http
+                    .get(CONFIG.apiBaseUrl + '/users/' + _loginName)
+                    .then(onUserSuccess, onUserFails);
+
+                function onUserSuccess(result) {
+                    _userData = result.data.outcome;
+                    defer.resolve(_userData);
+                }
+
+                function onUserFails(err) {
+                    defer.reject(err);
+                }
+            } else {
+                defer.resolve(_userData);
             }
-            return _userData;
+
+            return defer.promise;
         }
 
         function updateCurrentUser(user) {

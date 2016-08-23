@@ -6,7 +6,8 @@
     .controller('PrivateController', PrivateController);
 
   /* @ngInject */
-  function PrivateController(logger) {
+  function PrivateController(logger,
+                             AuthService) {
     var vm = this;
     vm.title = 'Admin';
 

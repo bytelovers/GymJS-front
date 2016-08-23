@@ -27,7 +27,7 @@
                 .then(onUserSuccess, onUserFails);
 
             function onUserSuccess(result) {
-                vm.user = vm.currentUser = result.data.outcome;
+                vm.user = vm.currentUser = result;
             }
 
             function onUserFails(err) {
