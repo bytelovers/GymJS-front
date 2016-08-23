@@ -14,7 +14,7 @@
 
         function challengeData(data) {
             data = data.map(function(challenge){
-                var _active = moment(challenge.dates.end).isSameOrBefore(moment(), 'day');
+                var _active = moment(challenge.dates.end).isAfter(moment(), 'day');
 
                 challenge.active   = _active;
                 challenge.inactive = !_active;
